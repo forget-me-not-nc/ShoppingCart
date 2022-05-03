@@ -20,7 +20,7 @@ namespace ShoppingCart.Services
 
         public async Task deleteValueFromListAsync(string cacheKey, string value)
         {
-            await _database.ExecuteAsync("LREM @cacheKey -1 @value", cacheKey, value);
+            await _database.ExecuteAsync("LREM", cacheKey, -1, value);
         }
             
         public async Task<RedisValue[]> getCachedListAsync(string cacheKey)
