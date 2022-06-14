@@ -4,12 +4,10 @@ namespace ShoppingCart.Services
 {
     public class RedisCacheService : ICacheService
     {
-        private readonly IConnectionMultiplexer _connectionMultiplexer;
         private readonly IDatabase _database;
 
         public RedisCacheService(IConnectionMultiplexer connectionMultiplexer)
         {
-            _connectionMultiplexer = connectionMultiplexer;
             _database = connectionMultiplexer.GetDatabase();
         }
 
